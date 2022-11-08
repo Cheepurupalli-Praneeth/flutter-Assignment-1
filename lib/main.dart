@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bmi/secondPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Homepage(),
+    //   initialRoute: '/',
+    //   routes: {
+    //     '/':(context)=>Homepage(),
+    //     '/second':(context)=>SecondPage()
+    // },
 
     );
   }
@@ -26,7 +32,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  double _currentValue=0;
+  double _currentValue=100;
   double counter=50;
   double bmi=0;
   @override
@@ -170,16 +176,18 @@ class _HomepageState extends State<Homepage> {
             ),
             child: Column(
               children: [
-                Text("Your BMI is",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic)),
-                Text(bmi.round().toString(),style: TextStyle(fontSize: 40),),
+                Text("Press the Button to calculate yout BMI",style: TextStyle(fontSize: 30,fontWeight:FontWeight.bold,fontStyle: FontStyle.italic),),
+                // Text("Your BMI is",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic)),
+                // Text(bmi.round().toString(),style: TextStyle(fontSize: 40),),
                 FloatingActionButton(
                     child: Center(child: Icon(Icons.ads_click)),
                     backgroundColor: Colors.lightBlueAccent,
                     foregroundColor: Colors.black,
 
                     onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=>SecondPage(bmi:bmi)));
+                      // Navigator.pushNamed(context, '/Second');
                       setState(() {
-
                       });
                       bmi=(counter*10000)/(_currentValue*_currentValue);
                     }
