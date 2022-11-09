@@ -51,7 +51,9 @@ class _HomepageState extends State<Homepage> {
 
         children:[
           Center(
+
             child: Container(
+
               height: 200,
               width: 400,
               decoration: BoxDecoration(
@@ -175,8 +177,9 @@ class _HomepageState extends State<Homepage> {
                 borderRadius: BorderRadius.all(Radius.circular(200))
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Press the Button to calculate yout BMI",style: TextStyle(fontSize: 30,fontWeight:FontWeight.bold,fontStyle: FontStyle.italic),),
+                Text("Your BMI is",style: TextStyle(fontSize: 30,fontWeight:FontWeight.bold,fontStyle: FontStyle.italic),),
                 // Text("Your BMI is",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic)),
                 // Text(bmi.round().toString(),style: TextStyle(fontSize: 40),),
                 FloatingActionButton(

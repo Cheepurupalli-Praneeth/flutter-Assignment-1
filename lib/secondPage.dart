@@ -15,47 +15,90 @@ class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.pink,
       appBar: AppBar(
+        backgroundColor: Colors.brown,
         title: Text("Result"),
       ),
-      body:
-      Center(
-      child:Column(
-        children: [
-          FloatingActionButton(
-              child: Center(child: Icon(Icons.ads_click)),
-              backgroundColor: Colors.lightBlueAccent,
-              foregroundColor: Colors.black,
+      body:Column(
+      mainAxisAlignment: MainAxisAlignment.center,
 
-              onPressed: (){
-                Navigator.pop(context);
-                setState(() {
-                });
-              }
-          ),
-          Text("Your BMI is ${widget.bmi.round()}",style: TextStyle(
-            fontSize: 50
-          ),
-          ),
-          RatingBar.builder(
-            initialRating: 3,
-            minRating: 1,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemCount: 5,
-            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-            itemBuilder: (context, _) => Icon(
-              Icons.star,
-              color: Colors.amber,
+        children: [
+          Center(
+
+            child: Container(
+
+      height: 500,
+        width: 400,
+        decoration: BoxDecoration(
+            color: Colors.greenAccent,
+            border: Border.all(
+              color: Colors.yellow,
             ),
-            onRatingUpdate: (rating) {
-              print(rating);
-            },
+            borderRadius: BorderRadius.all(Radius.circular(20))
+        ),
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+
+
+                  Text("Your BMI is ${widget.bmi.round()}",style: TextStyle(
+                      fontSize: 50
+                  ),
+                  ),
+                  RatingBar.builder(
+
+                    initialRating: 3,
+                    minRating: 0,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 5,
+                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {
+                      print(rating);
+                    },
+                  ),
+                  ElevatedButton(
+
+
+                      child: Center(child: Text("Click here to Check Again",style: TextStyle(color:Colors.black,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,fontSize: 30),)),
+
+
+
+                      onPressed: (){
+                        Navigator.pop(context);
+                        setState(() {
+                        });
+                      }
+                  ),
+                ],
+              )
+
+            ),
           )
+
 
         ],
       ),
-      )
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
