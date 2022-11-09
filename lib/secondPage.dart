@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+
 class SecondPage extends StatefulWidget {
   SecondPage({required this.bmi});
 
@@ -12,8 +13,18 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  String text = "";
   @override
   Widget build(BuildContext context) {
+    if (widget.bmi<18.5){
+      text = "Underweight";
+    }
+    else if(widget.bmi>25){
+      text="Overweight";
+    }
+    else{
+      text="Healthy";
+    }
     return Scaffold(
       backgroundColor: Colors.pink,
       appBar: AppBar(
@@ -46,6 +57,10 @@ class _SecondPageState extends State<SecondPage> {
                       fontSize: 50
                   ),
                   ),
+                  Text("You are ${text} !!!",style: TextStyle(
+                    fontSize:40,fontWeight: FontWeight.bold,color:Colors.black
+                  ),),
+                  Text("Rate this app",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                   RatingBar.builder(
 
                     initialRating: 3,

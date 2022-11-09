@@ -179,7 +179,7 @@ class _HomepageState extends State<Homepage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Your BMI is",style: TextStyle(fontSize: 30,fontWeight:FontWeight.bold,fontStyle: FontStyle.italic),),
+                Text("Ckeck your BMI",style: TextStyle(fontSize: 30,fontWeight:FontWeight.bold,fontStyle: FontStyle.italic),),
                 // Text("Your BMI is",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic)),
                 // Text(bmi.round().toString(),style: TextStyle(fontSize: 40),),
                 FloatingActionButton(
@@ -189,7 +189,7 @@ class _HomepageState extends State<Homepage> {
 
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(builder: (context)=>SecondPage(bmi:bmi)));
-                      // Navigator.pushNamed(context, '/Second');
+                      // Navigator.pushNamed(context, '/Second',Argument(bmi));
                       setState(() {
                       });
                       bmi=(counter*10000)/(_currentValue*_currentValue);
